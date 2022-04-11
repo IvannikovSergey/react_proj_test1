@@ -1,9 +1,10 @@
 import './App.css';
+import CostItem from "./components/CostItem";
 
 function App() {
     return (
         <div className="App">
-            work!!!
+            <CostItem/>
         </div>
     );
 }
