@@ -1,10 +1,25 @@
 import './App.css';
-import CostItem from "./components/CostItem";
+import Costs from "./components/Costs/Costs";
 
 function App() {
+
+    const costs = [
+        {
+            id: 1,
+            date: new Date(2022, 2, 12),
+            description: 'Холодильник',
+            amount: 999.99
+        },
+        {
+            id: 2,
+            date: new Date(2021, 5, 22),
+            description: 'Стиральная машина',
+            amount: 200
+        },
+    ]
     return (
         <div className="App">
-            <CostItem/>
+            <Costs costs={costs}/>
         </div>
     );
 }
