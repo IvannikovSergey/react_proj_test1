@@ -18,9 +18,12 @@ function App() {
             amount: 200
         },
     ]
+    const onAddNewCost = (costs) => {
+        console.log(costs)
+    }
     return (
         <div className="App">
-            <NewCost/>
+            <NewCost addNewCost = {onAddNewCost}/>
             <Costs costs={costs}/>
         </div>
     );

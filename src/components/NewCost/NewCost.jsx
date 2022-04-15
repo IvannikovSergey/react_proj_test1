@@ -1,9 +1,16 @@
 import CostForm from "./CostForm";
 import './NewCost.css'
 
-function NewCost () {
+function NewCost(props) {
+    const onNewCostHandler = (newCosts) => {
+        const costData = {
+            ...newCosts
+        }
+        props.addNewCost(costData)
+    }
     return <div className='new-cost'>
-        <CostForm/>
+        <CostForm newCostHandler={onNewCostHandler}/>
     </div>
 }
+
 export default NewCost

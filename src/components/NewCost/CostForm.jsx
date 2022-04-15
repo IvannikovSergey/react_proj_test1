@@ -1,60 +1,81 @@
 import './CostForm.css'
 import {useState} from "react";
-const CostForm = () => {
 
-    // const [name, setName] = useState('')
-    // const [amount, setAmount] = useState('')
-    // const [date, setDate] = useState('2019-12-12')
+const CostForm = (props) => {
 
-    const [userInput, setUserInput] = useState({
-        name:'',
-        amount:'',
-        date:''
-    })
-
+    const [inputName, setInputName] = useState('')
+    const [inputAmount, setInputAmount] = useState('')
+    const [inputDate, setInputDate] = useState('2019-12-12')
+    // const [userInput, setUserInput] = useState({
+    //     name:'',
+    //     amount:'',
+    //     date:''
+    // })
     const nameChangeHandler = (e) => {
-        // setName(e.target.value)
-        setUserInput({
-            ...userInput,
-            name: e.target.value
-
-        })
+        setInputName(e.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     name: e.target.value
+        // })
     }
     const amountChangeHandler = (e) => {
-        // setAmount(e.target.value)
-        setUserInput({
-            ...userInput,
-            amount: e.target.value
-
-        })
+        setInputAmount(e.target.value)
+        // setUserInput({
+        //     ...userInput,
+        //     amount: e.target.value
+        // })
 
     }
     const dateChangeHandler = (e) => {
-      // setDate(e.target.value)
-        setUserInput({
-            ...userInput,
-            date: e.target.value
-
-        })
+        setInputDate(e.target.value)
+        //   setUserInput({
+        //       ...userInput,
+        //       date: e.target.value
+        //   })
     }
 
-    return <form>
+    const submitInputHandler = (e) => {
+        e.preventDefault()
+        const costData = {
+            name: inputName,
+            amount: inputAmount,
+            date: new Date(inputDate)
+        }
+        props.newCostHandler(costData)
+        setInputName('')
+        setInputAmount('')
+        setInputDate('')
+    }
+
+    return <form onSubmit={submitInputHandler}>
         <div className='new-cost__control'>
             <div className='new-cost__control'>
                 <label>Название</label>
-                <input onChange={nameChangeHandler} type="text"/>
+                <input
+                    onChange={nameChangeHandler}
+                    type="text"
+                    value={inputName}/>
             </div>
             <div className='new-cost__control'>
                 <label>Сумма</label>
-                <input onChange={amountChangeHandler} type="number" min='0.01' step='0.01'/>
+                <input
+                    onChange={amountChangeHandler}
+                    type="number"
+                    min='0.01'
+                    step='0.01'
+                    value={inputAmount}/>
             </div>
             <div className='new-cost__control'>
                 <label>Дата</label>
-                <input onChange={dateChangeHandler} type="date" step='2019-01-01'/>
+                <input
+                    onChange={dateChangeHandler}
+                    type="date"
+                    step='2019-01-01'
+                    value={inputDate}/>
             </div>
         </div>
-        <div >
-            <button type='submit' className="waves-effect waves-light btn" >Добавить расход</button>
+        <div>
+            <button type='submit' className="waves-effect waves-light btn">Добавить расход</button>
         </div>
     </form>
 }
