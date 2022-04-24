@@ -37,11 +37,11 @@ const CostForm = (props) => {
     const submitInputHandler = (e) => {
         e.preventDefault()
         const costData = {
-            name: inputName,
+            description: inputName,
             amount: inputAmount,
             date: new Date(inputDate)
         }
-        props.newCostHandler(costData)
+        props.onNewCostHandler(costData)
         setInputName('')
         setInputAmount('')
         setInputDate('')
