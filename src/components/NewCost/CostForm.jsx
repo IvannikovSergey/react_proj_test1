@@ -5,7 +5,7 @@ const CostForm = (props) => {
 
     const [inputName, setInputName] = useState('')
     const [inputAmount, setInputAmount] = useState('')
-    const [inputDate, setInputDate] = useState('2019-12-12')
+    const [inputDate, setInputDate] = useState('2022-01-01')
     // const [userInput, setUserInput] = useState({
     //     name:'',
     //     amount:'',
@@ -75,7 +75,8 @@ const CostForm = (props) => {
             </div>
         </div>
         <div>
-            <button type='submit' className="waves-effect waves-light btn">Добавить расход</button>
+            <button type='submit' className="btn">Добавить расход</button>
+            <button type='button' className='btn' onClick={props.onCancel}>Отмена</button>
         </div>
     </form>
 }

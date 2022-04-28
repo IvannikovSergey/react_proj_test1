@@ -5,7 +5,7 @@ import CostList from "./CostList";
 
 function Costs(props) {
 
-    const [selectedYear, setSelectedYear] = useState('2021')
+    const [selectedYear, setSelectedYear] = useState('2022')
 
     const onFilterYear = (filteredYear) => {
         setSelectedYear(filteredYear)
