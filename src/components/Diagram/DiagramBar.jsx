@@ -1,3 +1,5 @@
+import './DiagramBar.css'
+
 const DiagramBar = (props) => {
 let barFillHeight = '0%'
     if (props.maxValue > 0) {
